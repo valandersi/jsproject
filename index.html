@@ -8,24 +8,28 @@
 </head>
 <body>
 
-<div><!--Комментари--><span><b>Жирный</b>Спал</span> Текст </div>
+<input type="text" id ="text1"><span> + </span><input type="text" id ="text2"><span> + </span><input type="text" id ="text3">
+
+<button>Результат</button>
+<span>   </span>
+<input type="text" id ="result">
 
 <script>
 "use strict"
-var div = document.querySelector('div');
-for (var i = 0; i < div.childNodes.length; i++) {
-	
-	 if (div.childNodes[i].nodeType == 3){ 
-	 console.log(div.childNodes[i].textContent)
-	 } else if (div.childNodes[i].nodeType == 8) {
-	 console.log(div.childNodes[i].textContent)
-	 } else if (div.childNodes[i].nodeType == 1) {
-	 console.log(div.childNodes[i].innerHTML)
-	 }
+var num1 = document.querySelector('#text1');
+var num2 = document.querySelector('#text2');
+var num3 = document.querySelector('#text3');
+var btn = document.querySelector('button');
+var result = document.querySelector('#result');
 
-	 } 
+btn.addEventListener("click", sum);
 
-//Переберите циклом все его узлы и выведите на экран для текстовых узлов и комментариев их текст, а для узлов-DOM-элементов - их innerHTML.
+function sum() {
+result.value = +num1.value + +num2.value + +num3.value
+}
+
+
+//Даны 3 инпута и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в четвертый инпут.
 
 </script>
 </body>

@@ -8,30 +8,25 @@
 </head>
 <body>
 
-<input type="text" class ="num"><span> + </span><input type="text" class ="num"><span> + </span><input type="text" class ="num">
+<input type="text" class ="num">
 
-<button>Результат</button>
-<span>   </span>
-<p id ="result"></p>
 
 <script>
 "use strict"
-var num = document.querySelectorAll('.num');
-var btn = document.querySelector('button');
-var result = document.querySelector('#result');
-btn.addEventListener("click", sum);
+var input = document.querySelector('input');
+input.addEventListener("blur", sum);
 
 function sum() {
-	var sumAll = 0;
-	for (var i = 0; i < num.length; i++) {
-	num[i].value = +num[i].value
-	sumAll += +num[i].value	
+	var result = 0
+	for (var i = 0; i < input.value.length; i++) {
+	result += +input.value[i];
 	}
-	result.textContent = sumAll;
+	
+	console.log(result);
 }
 
 
-//Даны N инпутов с классом .num и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в абзац с id="result".
+//Дан инпут. В него вводится число. По потери фокуса найдите сумму цифр этого числа.
 
 </script>
 </body>

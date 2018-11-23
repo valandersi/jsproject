@@ -8,28 +8,30 @@
 </head>
 <body>
 
-<input type="text" id ="text1"><span> + </span><input type="text" id ="text2"><span> + </span><input type="text" id ="text3">
+<input type="text" class ="num"><span> + </span><input type="text" class ="num"><span> + </span><input type="text" class ="num">
 
 <button>Результат</button>
 <span>   </span>
-<input type="text" id ="result">
+<p id ="result"></p>
 
 <script>
 "use strict"
-var num1 = document.querySelector('#text1');
-var num2 = document.querySelector('#text2');
-var num3 = document.querySelector('#text3');
+var num = document.querySelectorAll('.num');
 var btn = document.querySelector('button');
 var result = document.querySelector('#result');
-
 btn.addEventListener("click", sum);
 
 function sum() {
-result.value = +num1.value + +num2.value + +num3.value
+	var sumAll = 0;
+	for (var i = 0; i < num.length; i++) {
+	num[i].value = +num[i].value
+	sumAll += +num[i].value	
+	}
+	result.textContent = sumAll;
 }
 
 
-//Даны 3 инпута и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в четвертый инпут.
+//Даны N инпутов с классом .num и кнопка. По нажатию на кнопку получите числа, стоящие в этих инпутах и запишите их сумму в абзац с id="result".
 
 </script>
 </body>

@@ -18,13 +18,10 @@ fio.addEventListener("blur", sum);
 
 function sum() {
 	var fioSplit = fio.value.split(" ");
-	fio.value = fioSplit[0].slice(0,1).toUpperCase() + fioSplit[0].slice(1) + " " + fioSplit[1].slice(0,1).toUpperCase() + fioSplit[1].slice(1)  + " " + fioSplit[2].slice(0,1).toUpperCase() + fioSplit[2].slice(1) 
-	
+	console.log("Кол-во слов: " + (fioSplit.length));
 }
 
-//Дан инпут. В него вводится ФИО через пробел. ФИО вводится с маленькой буквы. 
-//Сделайте так, чтобы по потери фокуса инпутом, введенные фамилия, имя и отчество автоматически стали записанными с большой буквы (в том же инпуте).
-
+//Дан инпут. В него вводится текст. По потери фокуса узнайте количество слов в этом тексте.
 </script>
 </body>
 </html>

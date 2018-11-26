@@ -14,26 +14,16 @@
 <script>
 "use strict"
 var fio = document.querySelector('.fio');
-fio.addEventListener("blur", sum);
+fio.addEventListener("blur", date);
 
-function sum() {
-	var fioSplit = fio.value.split(" ");
-	var result = 0;
-	var keyResult;
-	for (var i = 0; i < fioSplit.length; i++) {
-	
-		if (result < fioSplit[i].length) {
-		result = fioSplit[i].length;
-		keyResult = fioSplit[i];
-		}
-	
-	}
-	console.log("Самое длинное слово: " + "'" + keyResult + "'" + " в нем " + result + " букв");
+function date() {
+	var fioSplit = fio.value.split(".");
+	fio.value = fioSplit[2] + "-" + fioSplit[1] + "-" + fioSplit[0];
 	
 	
 }
 
-//Дан инпут. В него вводится текст. По потери фокуса узнайте количество символов в самом длинном слове в этом тексте.
+//Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса в этом же инпуте поставьте эту дату в формате 2016-12-31.
 </script>
 </body>
 </html>

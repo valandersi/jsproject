@@ -18,15 +18,18 @@ input.addEventListener("blur", sum);
 
 function sum() {
 	var result = 0
-	for (var i = 0; i < input.value.length; i++) {
-	result += +input.value[i];
+	var inpSplit = input.value.split(",");
+	for (var i = 0; i < inpSplit.length; i++) {
+	result += +inpSplit[i];
 	}
 	
-	console.log(result);
+	console.log("Сумма чисел: " + result);
+	
+	console.log("Среднее арифметическое: " + result / inpSplit.length);
 }
 
 
-//Дан инпут. В него вводится число. По потери фокуса найдите сумму цифр этого числа.
+//Дан инпут. В него вводятся числа через запятую. По потери фокуса найдите среднее арифметическое этих чисел. 
 
 </script>
 </body>

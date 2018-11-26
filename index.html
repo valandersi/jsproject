@@ -8,27 +8,22 @@
 </head>
 <body>
 
-<input type="text" class ="fio"><br/><br/>
-
-<input type="text">
-<input type="text">
-<input type="text">
+<input type="text" class ="fio">
 
 
 <script>
 "use strict"
 var fio = document.querySelector('.fio');
-var inpAll = document.querySelectorAll('input');
 fio.addEventListener("blur", sum);
 
 function sum() {
 	var fioSplit = fio.value.split(" ");
-	inpAll[1].value = fioSplit[0];
-	inpAll[2].value = fioSplit[1];
-	inpAll[3].value = fioSplit[2];		
+	fio.value = fioSplit[0].slice(0,1).toUpperCase() + fioSplit[0].slice(1) + " " + fioSplit[1].slice(0,1).toUpperCase() + fioSplit[1].slice(1)  + " " + fioSplit[2].slice(0,1).toUpperCase() + fioSplit[2].slice(1) 
+	
 }
 
-//Дан инпут. В него вводится ФИО через пробел. По потери фокуса запишите фамилию, имя и отчество в отдельные инпуты.
+//Дан инпут. В него вводится ФИО через пробел. ФИО вводится с маленькой буквы. 
+//Сделайте так, чтобы по потери фокуса инпутом, введенные фамилия, имя и отчество автоматически стали записанными с большой буквы (в том же инпуте).
 
 </script>
 </body>

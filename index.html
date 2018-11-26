@@ -8,22 +8,28 @@
 </head>
 <body>
 
-<input type="text" class ="fio">
-
+<label for="dateBirth">Введите год рождения</label><br/><br/>
+<input type="text" id="dateBirth"><br/><br/>
+<button>Узнать сколько лет!</button>
+<p></p>
 
 <script>
 "use strict"
-var fio = document.querySelector('.fio');
-fio.addEventListener("blur", date);
+var dateBirth = document.querySelector('#dateBirth');
+var btn = document.querySelector('button');
+var result = document.querySelector('p');
+btn.addEventListener("click", date);
 
 function date() {
-	var fioSplit = fio.value.split(".");
-	fio.value = fioSplit[2] + "-" + fioSplit[1] + "-" + fioSplit[0];
 	
-	
+	var date = new Date();
+	var year = date.getFullYear();
+	result.textContent = "Вам " + (year - dateBirth.value) + " лет!";
+		
+//	 Дан инпут. В него вводится год рождения пользователя. По нажатию на кнопку выведите в абзац ниже сколько пользователю лет.
 }
 
-//Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса в этом же инпуте поставьте эту дату в формате 2016-12-31.
+
 </script>
 </body>
 </html>

@@ -8,28 +8,29 @@
 </head>
 <body>
 
-<input type="text" class ="num">
+<input type="text" class ="fio"><br/><br/>
+
+<input type="text">
+<input type="text">
+<input type="text">
 
 
 <script>
 "use strict"
-var input = document.querySelector('input');
-input.addEventListener("blur", sum);
+var fio = document.querySelector('.fio');
+var inpAll = document.querySelectorAll('input');
+fio.addEventListener("blur", sum);
 
 function sum() {
-	var result = 0
-	var inpSplit = input.value.split(",");
-	for (var i = 0; i < inpSplit.length; i++) {
-	result += +inpSplit[i];
-	}
-	
-	console.log("Сумма чисел: " + result);
-	
-	console.log("Среднее арифметическое: " + result / inpSplit.length);
+	var fioSplit = fio.value.split(" ");
+	console.log(inpAll[1]);
+	console.log(fioSplit[0]);
+	inpAll[1].value = fioSplit[0];
+	inpAll[2].value = fioSplit[1];
+	inpAll[3].value = fioSplit[2];		
 }
 
-
-//Дан инпут. В него вводятся числа через запятую. По потери фокуса найдите среднее арифметическое этих чисел. 
+//Дан инпут. В него вводится ФИО через пробел. По потери фокуса запишите фамилию, имя и отчество в отдельные инпуты.
 
 </script>
 </body>

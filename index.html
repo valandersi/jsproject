@@ -18,10 +18,22 @@ fio.addEventListener("blur", sum);
 
 function sum() {
 	var fioSplit = fio.value.split(" ");
-	console.log("Кол-во слов: " + (fioSplit.length));
+	var result = 0;
+	var keyResult;
+	for (var i = 0; i < fioSplit.length; i++) {
+	
+		if (result < fioSplit[i].length) {
+		result = fioSplit[i].length;
+		keyResult = fioSplit[i];
+		}
+	
+	}
+	console.log("Самое длинное слово: " + "'" + keyResult + "'" + " в нем " + result + " букв");
+	
+	
 }
 
-//Дан инпут. В него вводится текст. По потери фокуса узнайте количество слов в этом тексте.
+//Дан инпут. В него вводится текст. По потери фокуса узнайте количество символов в самом длинном слове в этом тексте.
 </script>
 </body>
 </html>

@@ -8,28 +8,28 @@
 </head>
 <body>
 
-<label for="dateBirth">Введите год рождения</label><br/><br/>
+<label for="dateBirth">Введите дату в фомате 31.12.2016 (число.месяц.год)</label><br/><br/>
 <input type="text" id="dateBirth"><br/><br/>
-<button>Узнать сколько лет!</button>
 <p></p>
 
 <script>
 "use strict"
 var dateBirth = document.querySelector('#dateBirth');
-var btn = document.querySelector('button');
 var result = document.querySelector('p');
-btn.addEventListener("click", date);
+dateBirth.addEventListener("blur", date);
 
 function date() {
-	
-	var date = new Date();
-	var year = date.getFullYear();
-	result.textContent = "Вам " + (year - dateBirth.value) + " лет!";
-		
-//	 Дан инпут. В него вводится год рождения пользователя. По нажатию на кнопку выведите в абзац ниже сколько пользователю лет.
+	var days = ["воскресенье", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота"];
+	var str = dateBirth.value;
+	var arr1 = str.split(".");
+	arr1 = arr1.reverse();
+	arr1 = arr1.join("/");
+	var date = new Date(arr1);
+	var day = date.getDay();
+	result.textContent = dateBirth.value + " - " + days[day];
 }
 
-
+//	 Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса узнайте день недели (словом), который приходится на эту дату.
 </script>
 </body>
 </html>

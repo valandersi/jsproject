@@ -8,30 +8,45 @@
 </head>
 <body>
 
-<p>Абзац</p>
-<p>Абзац</p>
-<p>Абзац</p>
-<p>Абзац</p>
-<p>Абзац</p>
-<p>Абзац</p>
-<p>Абзац</p>
+<p>3</p>
+<p>6</p>
+<p>8</p>
+<p>12</p>
+<p>19</p>
+<p>41</p>
+<p>2</p>
 
 <button>Click!</button>
+<input type="text">
 <script>
 "use strict"
 var p = document.querySelectorAll('p');
 var btn = document.querySelector('button');
+var input = document.querySelector('input');
 btn.addEventListener("click", addNum);
-
+var arr = [];
 function addNum() {
 
 	for (var i = 0; i < p.length; i++) {
-	p[i].textContent = p[i].textContent + " " + (i + 1);
+	arr.push(p[i].textContent);		
 	}
 	
+	arr.sort(function (a, b) {
+    return a - b;
+	});
+
+	for (var i = 0; i < arr.length; i++) {	
+		if (i+1 != arr.length){
+		input.value += arr[i]+ " ,"
+		} else {
+		input.value += arr[i]
+		}
+	}
+		
 }
 
-//	 Даны N абзацев и кнопка. По нажатию на кнопку запишите в конец каждого абзаца его порядковый номер.
+
+//	 Даны N абзацев с числами. По нажатию на кнопку выведите эти числа в инпут через запятую в порядке возрастания.
 </script>
 </body>
 </html>

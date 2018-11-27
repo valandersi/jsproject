@@ -8,34 +8,31 @@
 </head>
 <body>
 
-<label for="word">Введите слово</label><br/><br/>
-<input type="text" id="word"><br/><br/>
+<label for="num">Введите число</label><br/><br/>
+<input type="text" id="num"><br/><br/>
 <p></p>
 
 <script>
 "use strict"
-var word = document.querySelector('#word');
+var num = document.querySelector('#num');
 var result = document.querySelector('p');
-word.addEventListener("blur", transform);
+num.addEventListener("keyup", transform);
 
 function transform() {
 
-	var str = word.value;
-	var arr1 = str.split("");
-	var arr2 = str.split("").reverse();
-	for (var i = 0; i < arr1.length; i++) {		
-		
-		if(arr1[i] !== arr2[i]) {
-		console.log("Слово читается с начала и конца по разному");
-		return; 
-		} 
-				
-	}	
-	console.log("Слово читается с начала и конца одинаково");	
+	var arr = num.value.split("");
+	for (var i = 0; i < arr.length; i++) {
+	
+		if (arr[i] == "3") {
+		return result.textContent = "Число содержит 3";
+		}
+	
+	}
+	result.textContent ="Число не содержит 3";
 	
 }
 
-//	 Дан инпут. В него вводится слово. По нажатию на кнопку проверьте то, что это слово читается с начала и с конца одинаково (например, мадам).
+//	 Дан инпут. В него вводится число. Проверьте по вводу, что это число содержит внутри себя цифру 3.
 </script>
 </body>
 </html>

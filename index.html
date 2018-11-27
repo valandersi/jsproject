@@ -8,28 +8,34 @@
 </head>
 <body>
 
-<label for="dateBirth">Введите дату в фомате 31.12.2016 (число.месяц.год)</label><br/><br/>
-<input type="text" id="dateBirth"><br/><br/>
+<label for="word">Введите слово</label><br/><br/>
+<input type="text" id="word"><br/><br/>
 <p></p>
 
 <script>
 "use strict"
-var dateBirth = document.querySelector('#dateBirth');
+var word = document.querySelector('#word');
 var result = document.querySelector('p');
-dateBirth.addEventListener("blur", date);
+word.addEventListener("blur", transform);
 
-function date() {
-	var days = ["воскресенье", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота"];
-	var str = dateBirth.value;
-	var arr1 = str.split(".");
-	arr1 = arr1.reverse();
-	arr1 = arr1.join("/");
-	var date = new Date(arr1);
-	var day = date.getDay();
-	result.textContent = dateBirth.value + " - " + days[day];
+function transform() {
+
+	var str = word.value;
+	var arr1 = str.split("");
+	var arr2 = str.split("").reverse();
+	for (var i = 0; i < arr1.length; i++) {		
+		
+		if(arr1[i] !== arr2[i]) {
+		console.log("Слово читается с начала и конца по разному");
+		return; 
+		} 
+				
+	}	
+	console.log("Слово читается с начала и конца одинаково");	
+	
 }
 
-//	 Дан инпут. В него вводится дата в формате 31.12.2016. По потери фокуса узнайте день недели (словом), который приходится на эту дату.
+//	 Дан инпут. В него вводится слово. По нажатию на кнопку проверьте то, что это слово читается с начала и с конца одинаково (например, мадам).
 </script>
 </body>
 </html>

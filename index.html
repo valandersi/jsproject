@@ -8,26 +8,22 @@
 </head>
 <body>
 
-<p>3</p>
-<p>6</p>
-<p>7</p>
-<p>4</p>
-<p>6</p>
-<p>8</p>
-
+<img src="images/1.png" alt=""><br/>
+<img src="images/2.png" alt=""><br/>
+<img src="images/3.png" alt=""><br/>
 <script>
 "use strict"
-var p = document.querySelectorAll('p');
+var images = document.querySelectorAll('img');
 	
-	for (var i = 0; i < p.length; i++) {
-		p[i].addEventListener("click", square);	
+	for (var i = 0; i < images.length; i++) {
+		images[i].addEventListener("click", zoom);	
 	}
 	
-function square(){
-this.textContent = this.textContent * 2;
+function zoom(){
+this.style.width = this.offsetWidth * 2 + "px";
 }
 
-//	 Даны N абзацев с числами. По нажатию на любой абзац запишите в него квадрат числа, которое в нем находится.
+//	 Даны картинки. По нажатию на любую картинку увеличьте ее в 2 раза.
 </script>
 </body>
 </html>

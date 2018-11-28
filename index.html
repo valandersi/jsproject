@@ -4,31 +4,42 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
-	img {width:30px;}
 	</style>
 </head>
 <body>
-
-<img src="images/1.png" alt="">
-<img src="images/2.png" alt="">
-<img src="images/3.png" alt="">
+<p>Введите число</p>
+<input type="text"><br/><br/>
+<button id="minus_one">-1</button>
+<button id="plus_one">+1</button>
 <script>
 "use strict"
-var images = document.querySelectorAll('img');
+var input = document.querySelector('input');
+var btn1 = document.querySelector('#plus_one');
+var btn2 = document.querySelector('#minus_one');
 
-	for (var i = 0; i < images.length; i++) {
-		images[i].addEventListener("click", addImg);				
-	}
+
+btn1.addEventListener("click", plusNum);
+btn2.addEventListener("click", minusNum);	
+
+function plusNum(){	
 	
-function addImg(){	
-		var	art = this.cloneNode();
-		art.style.width = 50 + "px";
-		var br = document.createElement("br");
-		document.body.appendChild(br);
-		document.body.appendChild(art);
+	if (input.value < 0) {
+	alert("значение меньше 0")
+	} else {
+	input.value = +input.value + 1;
+	}
 }
 
-//	 Даны N картинок размера 30px. По нажатию на картинку под ними эта картинка появляется размером в 50px.
+function minusNum(){	
+	
+	if(input.value <= 0) {
+	alert("значение меньше 0")
+	} else {
+	input.value = +input.value - 1;
+	}	
+}
+
+//	 Дан инпут. Реализуйте кнопочки +1, -1, которые будут увеличивать или уменьшать на 1 значение инпута. Сделайте так, чтобы это значение не могло стать меньше нуля.
 </script>
 </body>
 </html>

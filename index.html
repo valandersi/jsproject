@@ -8,45 +8,22 @@
 </head>
 <body>
 
-<p>3</p>
-<p>6</p>
-<p>8</p>
-<p>12</p>
-<p>19</p>
-<p>41</p>
-<p>2</p>
+<a href="https://www.yandex.ru">Яндекс</a><br/>
+<a href="https://google.com">Гугл</a><br/>
+<a href="https://mail.ru">Мэил</a><br/>
 
-<button>Click!</button>
-<input type="text">
 <script>
 "use strict"
-var p = document.querySelectorAll('p');
-var btn = document.querySelector('button');
-var input = document.querySelector('input');
-btn.addEventListener("click", addNum);
-var arr = [];
-function addNum() {
+var a = document.querySelectorAll('a');
+window.onload = function addHref() {
 
-	for (var i = 0; i < p.length; i++) {
-	arr.push(p[i].textContent);		
+	for (var i = 0; i < a.length; i++) {
+	a[i].innerHTML = a[i].innerHTML + " " + a[i].href;
 	}
-	
-	arr.sort(function (a, b) {
-    return a - b;
-	});
-
-	for (var i = 0; i < arr.length; i++) {	
-		if (i+1 != arr.length){
-		input.value += arr[i]+ " ,"
-		} else {
-		input.value += arr[i]
-		}
-	}
-		
 }
 
 
-//	 Даны N абзацев с числами. По нажатию на кнопку выведите эти числа в инпут через запятую в порядке возрастания.
+//	 Даны ссылки. По загрузке страницы добавьте в конец каждой ссылки ее href в круглых скобках.
 </script>
 </body>
 </html>

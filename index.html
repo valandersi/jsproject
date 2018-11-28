@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
+	
+	.zoom{}
 	</style>
 </head>
 <body>
@@ -16,14 +18,18 @@
 var images = document.querySelectorAll('img');
 	
 	for (var i = 0; i < images.length; i++) {
-		images[i].addEventListener("click", zoom);	
+		images[i].addEventListener("click", zoom);				
 	}
 	
-function zoom(){
-this.style.width = this.offsetWidth * 2 + "px";
+function zoom(){	
+		if (this.classList.toggle("nui")){
+		this.style.width = this.offsetWidth * 2 + "px";
+		} else {
+		this.style.width = this.offsetWidth / 2 + "px";
+		}
 }
 
-//	 Даны картинки. По нажатию на любую картинку увеличьте ее в 2 раза.
+//	 Даны картинки. По первому нажатию на любую картинку увеличьте ее в 2 раза. По второму нажатию - уменьшите обратно.
 </script>
 </body>
 </html>

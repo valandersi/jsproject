@@ -7,24 +7,39 @@
 	</style>
 </head>
 <body>
-<p>Отличается текст от набора предложений своей смысловой, логической связностью и последовательностью, интонационной завершенностью. Текст состоит из предложений, но это предложения связаны между собой одной темой, а не набор предложений, образно говоря с бору да по сосенке.
-Текст имеет внешнюю и внутреннюю форму.</p>
-<p>Отличается текст от набора предложений своей смысловой, логической связностью и последовательностью, интонационной завершенностью. Текст состоит из предложений, но это предложения связаны между собой одной темой, а не набор предложений, образно говоря с бору да по сосенке.
-Текст имеет внешнюю и внутреннюю форму.</p>
-<input type="text"><br/><br/>
+<p>1235235</p>
+<p>7</p>
+<p>13</p>
+<p>2333</p>
+<p>56235235</p>
+<p>892</p>
+<p>111</p>
+<p>53111</p>
+<button>Click</button>
 <script>
 "use strict"
-var input = document.querySelector('input');
-window.addEventListener("mouseup", copyText);
+var pAll = document.querySelectorAll('p');
+var btn = document.querySelector('button');
+btn.addEventListener("click", result);
+var arr = [];
 
-
-function copyText(){	
+function result(){	
+	for (var i = 0; i < pAll.length; i++) {	
 	
-	var copy = window.getSelection();
-	input.value = copy;
+	arr.push(pAll[i].textContent);
+	}
+	
+	var maxNum = Math.max.apply(null,arr);
+	
+	for (var j = 0; j < pAll.length; j++) {
+	
+		if (pAll[j].textContent == maxNum) {
+		pAll[j].style.background = "red";
+		}
+	}
 }
 
-//	 Дан инпут. Выделите любой текст на странице. По окончанию выделения этот текст должен записаться в этот инпут.
+//	 Даны абзацы с числами. По нажатию на кнопку найдите абзац, в котором хранится максимальное число, и сделайте его красного цвета.
 </script>
 </body>
 </html>

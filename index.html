@@ -7,29 +7,18 @@
 	</style>
 </head>
 <body>
-<p>Абзац 1</p>
-<p>Абзац 2</p>
-<p>Абзац 3</p>
-<p>Абзац 4</p>
-<p>Абзац 5</p>
-<p>Абзац 6</p>
-<p>Абзац 7</p>
-<p>Абзац 8</p>
-<input type="text" value ="0">
+<input type="text" value="2">
 <script>
 "use strict"
-var pAll = document.querySelectorAll('p');
 var input = document.querySelector('input');
 
-for (var i = 0;i < pAll.length; i++){
-pAll[i].addEventListener("click", addClick);	
+setInterval(square, 1000)
+
+function square(){	
+input.value = input.value * input.value
 }
 
-function addClick(){	
-input.value = +input.value + 1;	
-}
-
-//	 Дан инпут. Даны абзацы. Пусть в этот инпут записывается суммарное количество нажатий по этим абзацам. 
+//	 Дан инпут с числом. Сделайте так, чтобы каждую секунду в нем появлялся квадрат того числа, которое в нем записано.
 </script>
 </body>
 </html>

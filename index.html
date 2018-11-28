@@ -4,8 +4,6 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
-	
-	.zoom{}
 	</style>
 </head>
 <body>
@@ -22,7 +20,7 @@ var images = document.querySelectorAll('img');
 	}
 	
 function zoom(){	
-		if (this.classList.toggle("nui")){
+		if (this.classList.toggle("zoom_pic")){
 		this.style.width = this.offsetWidth * 2 + "px";
 		} else {
 		this.style.width = this.offsetWidth / 2 + "px";

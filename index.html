@@ -7,39 +7,24 @@
 	</style>
 </head>
 <body>
-<p>Введите число</p>
+<p>Введите число от 1 до 100</p>
 <input type="text"><br/><br/>
-<button id="minus_one">-1</button>
-<button id="plus_one">+1</button>
 <script>
 "use strict"
 var input = document.querySelector('input');
-var btn1 = document.querySelector('#plus_one');
-var btn2 = document.querySelector('#minus_one');
+input.addEventListener("blur", numFind);
 
 
-btn1.addEventListener("click", plusNum);
-btn2.addEventListener("click", minusNum);	
-
-function plusNum(){	
+function numFind(){	
 	
-	if (input.value < 0) {
-	alert("значение меньше 0")
+	if (input.value >= 1 && input.value <=100) {
+	input.style.background = "green";
 	} else {
-	input.value = +input.value + 1;
+	input.style.background = "red";
 	}
 }
 
-function minusNum(){	
-	
-	if(input.value <= 0) {
-	alert("значение меньше 0")
-	} else {
-	input.value = +input.value - 1;
-	}	
-}
-
-//	 Дан инпут. Реализуйте кнопочки +1, -1, которые будут увеличивать или уменьшать на 1 значение инпута. Сделайте так, чтобы это значение не могло стать меньше нуля.
+//	 Дан инпут. В него вводится число. По потери фокуса проверьте, что в нем лежит число от 1 до 100. Если это так - покрасьте инпут в зеленый цвет, а если не так - в красный.
 </script>
 </body>
 </html>

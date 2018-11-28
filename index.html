@@ -11,6 +11,7 @@
 <a href="https://www.yandex.ru">Яндекс</a><br/>
 <a href="https://google.com">Гугл</a><br/>
 <a href="https://mail.ru">Мэил</a><br/>
+<a href="http://www.eliscom.ru/">Элиском СБ</a><br/>
 
 <script>
 "use strict"
@@ -18,12 +19,13 @@ var a = document.querySelectorAll('a');
 window.onload = function addHref() {
 
 	for (var i = 0; i < a.length; i++) {
-	a[i].innerHTML = a[i].innerHTML + " " + a[i].href;
+		if (a[i].href.indexOf("http://") == 0){
+		a[i].innerHTML = a[i].innerHTML + " " + "&rarr;"
+		} 
 	}
 }
 
-
-//	 Даны ссылки. По загрузке страницы добавьте в конец каждой ссылки ее href в круглых скобках.
+//	 Даны ссылки. По загрузке страницы, если ссылка начинается с http://, то добавьте ей в конец стрелку → (делается так: &rarr;).
 </script>
 </body>
 </html>

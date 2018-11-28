@@ -8,24 +8,26 @@
 </head>
 <body>
 
-<a href="https://www.yandex.ru">Яндекс</a><br/>
-<a href="https://google.com">Гугл</a><br/>
-<a href="https://mail.ru">Мэил</a><br/>
-<a href="http://www.eliscom.ru/">Элиском СБ</a><br/>
+<p>3</p>
+<p>6</p>
+<p>7</p>
+<p>4</p>
+<p>6</p>
+<p>8</p>
 
 <script>
 "use strict"
-var a = document.querySelectorAll('a');
-window.onload = function addHref() {
-
-	for (var i = 0; i < a.length; i++) {
-		if (a[i].href.indexOf("http://") == 0){
-		a[i].innerHTML = a[i].innerHTML + " " + "&rarr;"
-		} 
+var p = document.querySelectorAll('p');
+	
+	for (var i = 0; i < p.length; i++) {
+		p[i].addEventListener("click", square);	
 	}
+	
+function square(){
+this.textContent = this.textContent * 2;
 }
 
-//	 Даны ссылки. По загрузке страницы, если ссылка начинается с http://, то добавьте ей в конец стрелку → (делается так: &rarr;).
+//	 Даны N абзацев с числами. По нажатию на любой абзац запишите в него квадрат числа, которое в нем находится.
 </script>
 </body>
 </html>

@@ -4,26 +4,33 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
-	.color{background:red;}
-	.color_green{background:green;}
 	</style>
 </head>
 <body>
-<p class="color">Абзац</p>
+<p>Абзац</p>
 <script>
 "use strict"
 var p = document.querySelector('p');
-
-setInterval(change,1000)
-
-function change(){	
-p.classList.toggle("color_green");
+var arr = ['red', 'green', 'blue'];
+var i = 0;
+change();
+window.setInterval(change, 1000);
+function change(){			
+			
+	if(i != arr.length){
+		p.style.background = arr[i];
+		i++		
+	} else {
+		i = 0;
+		change();
+	}		
+	
 }
 
 
 
 
-//	 Дан абзац. Сделайте так, чтобы каждую секунду он менял свой цвет с красного на зеленый и наоборот.
+//	 Дан абзац. Дан массив цветов ['red', 'green', 'blue']. Сделайте так, чтобы каждую секунду абзац менял свой цвет на определенное значение их массива: сначала 'red', потом 'green' и так далее. Как только цвета в массиве закончатся - все начнется сначала. Количество цветов в массиве может быть любым.
 </script>
 </body>
 </html>

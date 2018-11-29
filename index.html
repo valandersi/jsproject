@@ -7,33 +7,35 @@
 	</style>
 </head>
 <body>
-<p>Абзац</p>
-<a href="#">следующая строка</a>
+<input type="text"><br/><br/>
+<input type="text"><br/><br/>
+<input type="text">
 <script>
 "use strict"
-var p = document.querySelector('p');
-var a = document.querySelector('a');
-var arr = ['один', 'два', 'три'];
+var input = document.querySelectorAll('input');
 var i = 0;
-p.textContent = arr[i];
-a.addEventListener("click",next);
+var sum = 0;
 
-function next(){
+setInterval(numPlus,1000);
+
+function numPlus() {
+	
+	if(i != input.length){
+	input[i].value = sum + 1;
 	i++
-	if (i <= arr.length - 1){
-	p.textContent = arr[i];
+	sum++
 	} else {
 	i = 0;
-	p.textContent = arr[i];
+	input[i].value = sum + 1;
+	i++;
+	sum++;
 	}
 }
 
 
-
-
-//	 Дан абзац. Дан массив строк ['один', 'два', 'три']. 
-//	 Под абзацем ссылка 'следующая строка'. По заходу на страницу в абзаце должен стоять нулевой элемент этого массива, 
-//	 а по нажатию на ссылку - вставлятся следующий элемент. 
+//	 Даны инпуты с числами. Произвольное количетсво, пусть три. В первый инпут запишите 1, 
+//	через секунду во второй инпут запишите 2, еще через секунду в третий инпут 3, потом через секунду в первый инпут запишите 4, 
+//	во второй 5 и так далее до бесконечности.
 </script>
 </body>
 </html>

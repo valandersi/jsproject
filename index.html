@@ -7,28 +7,31 @@
 	</style>
 </head>
 <body>
+<p>Введите число символов строки и нажмите на кнопку</p>
 <input type="text">
 <button>Click!</button>
+<hr/>
+<input type="text">
 <script>
 "use strict"
-var input = document.querySelector('input');
+var input = document.querySelectorAll('input');
 var btn = document.querySelector('button');
 btn.addEventListener("click", random);
 
 function random(){	
-input.value = "";
+input[1].value = "";
 var arrRand = ["а","б","в","г","д","е","ё","ж","з","и","к","л","м","н","о","п","р","с","т","у","ф","х","ц","ч","ш","щ",
 			   "ы","ъ","ы","ь","э","ю","я","1","2","3","4","5","6","7","8","9","0"];
 
-	for (var i = 0; i <= 7;i++){	
+	for (var i = 0; i <= input[0].value - 1;i++){	
 		var rand = Math.floor((Math.random() * arrRand.length + 1) - 1);
-		input.value =  input.value + arrRand[rand];	
+		input[1].value =  input[1].value + arrRand[rand];	
 	
 	}
 
 }
 
-//	 Дан инпут и кнопка. По нажатию на кнопку сгенерируйте случайную строку из 8-ми символов и запишите в инпут.
+//	 Модифицируйте предыдущую задачу так, чтобы был еще один инпут, в котором задается длина случайной строки.
 </script>
 </body>
 </html>

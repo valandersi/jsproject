@@ -7,32 +7,35 @@
 	</style>
 </head>
 <body>
-<p>Введите число символов строки и нажмите на кнопку</p>
+<p>Введите число</p>
 <input type="text">
-<p>Введите символы из которых должна состоять строка</p>
-<input type="text"><br/><br/>
-<button>Click!</button>
-<hr/>
-<input type="text">
+<p class="result"></p>
 <script>
 "use strict"
-var input = document.querySelectorAll('input');
-var btn = document.querySelector('button');
-btn.addEventListener("click", random);
+var input = document.querySelector('input');
+var p = document.querySelector('.result');
+input.addEventListener("blur", timer);
 
-function random(){	
-	var arrRand = input[1].value;
-	input[2].value = "";
 
-	for (var i = 0; i <= input[0].value - 1;i++){	
-		var rand = Math.floor((Math.random() * arrRand.length + 1) - 1);
-		input[2].value =  input[2].value + arrRand[rand];	
-	
-	}
+function timer(){	
 
+window.timerID = setInterval(time, 1000);
+p.innerHTML = +input.value;
 }
 
-//	 Модифицируйте предыдущую задачу так, чтобы был еще один инпут, в котором задаются символы, из которых формируется эта случайна строка. Символы задаются без всяких разделитетей, в одну строку. 
+
+function time(){	
+	
+	p.innerHTML = p.innerHTML - 1;	
+	if(p.innerHTML <= 0){
+	window.clearInterval(window.timerID);
+	}
+	
+}
+
+//	 Дан инпут. В него вводится число. 
+//	 По потери фокуса сделайте так, чтобы в абзаце ниже начал тикать обратный отсчет, начиная с введенного числа. 
+//   Когда отсчет дойдет до нуля - он должен закончится.
 </script>
 </body>
 </html>

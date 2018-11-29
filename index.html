@@ -4,38 +4,26 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
+	.color{background:red;}
+	.color_green{background:green;}
 	</style>
 </head>
 <body>
-<p>Введите число</p>
-<input type="text">
-<p class="result"></p>
+<p class="color">Абзац</p>
 <script>
 "use strict"
-var input = document.querySelector('input');
-var p = document.querySelector('.result');
-input.addEventListener("blur", timer);
+var p = document.querySelector('p');
 
+setInterval(change,1000)
 
-function timer(){	
-
-window.timerID = setInterval(time, 1000);
-p.innerHTML = +input.value;
+function change(){	
+p.classList.toggle("color_green");
 }
 
 
-function time(){	
-	
-	p.innerHTML = p.innerHTML - 1;	
-	if(p.innerHTML <= 0){
-	window.clearInterval(window.timerID);
-	}
-	
-}
 
-//	 Дан инпут. В него вводится число. 
-//	 По потери фокуса сделайте так, чтобы в абзаце ниже начал тикать обратный отсчет, начиная с введенного числа. 
-//   Когда отсчет дойдет до нуля - он должен закончится.
+
+//	 Дан абзац. Сделайте так, чтобы каждую секунду он менял свой цвет с красного на зеленый и наоборот.
 </script>
 </body>
 </html>

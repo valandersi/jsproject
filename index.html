@@ -8,29 +8,32 @@
 </head>
 <body>
 <p>Абзац</p>
+<a href="#">следующая строка</a>
 <script>
 "use strict"
 var p = document.querySelector('p');
-var arr = ['red', 'green', 'blue'];
+var a = document.querySelector('a');
+var arr = ['один', 'два', 'три'];
 var i = 0;
-change();
-window.setInterval(change, 1000);
-function change(){			
-			
-	if(i != arr.length){
-		p.style.background = arr[i];
-		i++		
+p.textContent = arr[i];
+a.addEventListener("click",next);
+
+function next(){
+	i++
+	if (i <= arr.length - 1){
+	p.textContent = arr[i];
 	} else {
-		i = 0;
-		change();
-	}		
-	
+	i = 0;
+	p.textContent = arr[i];
+	}
 }
 
 
 
 
-//	 Дан абзац. Дан массив цветов ['red', 'green', 'blue']. Сделайте так, чтобы каждую секунду абзац менял свой цвет на определенное значение их массива: сначала 'red', потом 'green' и так далее. Как только цвета в массиве закончатся - все начнется сначала. Количество цветов в массиве может быть любым.
+//	 Дан абзац. Дан массив строк ['один', 'два', 'три']. 
+//	 Под абзацем ссылка 'следующая строка'. По заходу на страницу в абзаце должен стоять нулевой элемент этого массива, 
+//	 а по нажатию на ссылку - вставлятся следующий элемент. 
 </script>
 </body>
 </html>

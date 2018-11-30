@@ -8,20 +8,36 @@
 </head>
 <body>
 
-<p>Включить поле ввода текста?</p>
+
 <input type="checkbox"><br/>
-<input type="text" class="inputText">
+<p>Абзац 1</p>
+<input type="checkbox"><br/>
+<p>Абзац 2</p>
+<input type="checkbox"><br/>
+<p>Абзац 3</p>
+<input type="checkbox"><br/>
+<p>Абзац 4</p>
+
 <script>
 "use strict"
-var input = document.querySelectorAll('input');
-input[0].addEventListener("click", change)
-change();
+var input = document.querySelectorAll("input");
 
-function change(){
-	
-	input[0].checked ? input[1].style.display = "inline-block" : input[1].style.display = "none";
+for (var i = 0; i < input.length; i++){
+input[i].addEventListener("click",show);
 }
-//	  Дан чекбокс. Дан инпут. Сделайте так, что если чекбокс отмечен - инпут видимый, если не отмечен - не видимый.
+
+function show() {
+	if (this.checked) {
+	this.nextElementSibling.nextElementSibling.style.display = "none";
+	} else {
+	
+	this.nextElementSibling.nextElementSibling.style.display = "block";
+	}
+	
+	
+}
+//	  Даны чекбоксы. Под каждым чекбоксом размещен абзац. 
+//	  Сделайте так, что если чекбокс отмечен - соответствующий абзац видимый, а если не отмечен - не видимый. 
 </script>
 </body>
 </html>

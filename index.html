@@ -8,39 +8,20 @@
 </head>
 <body>
 
-<p>Какой язык вы знаете?</p>
-<input type="checkbox" name="lang" value="HTML">HTML<br/>
-<input type="checkbox" name="lang" value="CSS">CSS<br/>
-<input type="checkbox" name="lang" value="JS">JS<br/>
-<input type="checkbox" name="lang" value="PHP">PHP<br/>
-<p class="result"></p>
+<p>Включить поле ввода текста?</p>
+<input type="checkbox"><br/>
+<input type="text" class="inputText">
 <script>
 "use strict"
 var input = document.querySelectorAll('input');
-var p = document.querySelector('.result');
+input[0].addEventListener("click", change)
+change();
 
-
-for (var i = 0; i < input.length; i++) {
-input[i].addEventListener("click", check);
+function change(){
+	
+	input[0].checked ? input[1].style.display = "inline-block" : input[1].style.display = "none";
 }
-
-function check() {
-	p.innerHTML =  "";
-	var result = "";
-	var pdefault = "Пользователь выбрал: ";
-	for (var i = 0; i < input.length; i++) {
-		if (input[i].checked){
-		result += input[i].value + ", ";	
-		
-		}
-		
-    }	
-	result =  result.slice(0,-2);
-	p.innerHTML = pdefault + result;
-		
-}
-
-//	 Спросите у пользователя какие языки (html, css, js, php) он знает с помощью чекбоксов. Выбранные языки должны выводится в абзац ниже через запятую.
+//	  Дан чекбокс. Дан инпут. Сделайте так, что если чекбокс отмечен - инпут видимый, если не отмечен - не видимый.
 </script>
 </body>
 </html>

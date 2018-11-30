@@ -8,34 +8,27 @@
 </head>
 <body>
 
-<input type="checkbox">
-<input type="checkbox">
-<input type="checkbox">
-
-<button>Click me!</button>
+<p>Какой язык вы знаете?</p>
+<input type="radio" name="lang" value="HTML">HTML<br/>
+<input type="radio" name="lang" value="CSS">CSS<br/>
+<input type="radio" name="lang" value="JS">JS<br/>
+<input type="radio" name="lang" value="PHP">PHP<br/>
+<p class="result"></p>
 <script>
 "use strict"
 var input = document.querySelectorAll('input');
-var btn = document.querySelector('button');
-btn.addEventListener("click", check);
+var p = document.querySelector('.result');
+
+for (var i = 0; i < input.length; i++) {
+input[i].addEventListener("click", check);
+}
 
 function check() {
-	
-	
-	for (var i = 0; i < input.length; i++){
-	
-		if (input[i].checked) {
-			input[i].checked = false;
-		} else {
-		input[i].checked = true;
-		}
-	
-	}
-	
+	p.textContent = "Пользователь знает " + this.value;	
 }
 
 
-//	 Даны чекбокс. Дана кнопка. По нажатию на кнопку сделайте все чекбоксы отмеченными.
+//	 Спросите у пользователя какой язык (html, css, js, php) он знает с помощью радио кнопочек. Выведите этот язык в абзац.
 </script>
 </body>
 </html>

@@ -7,35 +7,25 @@
 	</style>
 </head>
 <body>
-<input type="text"><br/><br/>
-<input type="text"><br/><br/>
-<input type="text">
+<a href="#">Click me!</a><br/>
+<input type="checkbox">
 <script>
 "use strict"
-var input = document.querySelectorAll('input');
-var i = 0;
-var sum = 0;
+var input = document.querySelector('input');
+var a = document.querySelector('a');
+a.addEventListener("click", check);
 
-setInterval(numPlus,1000);
-
-function numPlus() {
+function check() {
 	
-	if(i != input.length){
-	input[i].value = sum + 1;
-	i++
-	sum++
+	if (input.checked) {
+	input.checked = false;
 	} else {
-	i = 0;
-	input[i].value = sum + 1;
-	i++;
-	sum++;
+	input.checked = true;
 	}
 }
 
 
-//	 Даны инпуты с числами. Произвольное количетсво, пусть три. В первый инпут запишите 1, 
-//	через секунду во второй инпут запишите 2, еще через секунду в третий инпут 3, потом через секунду в первый инпут запишите 4, 
-//	во второй 5 и так далее до бесконечности.
+//	 Дана ссылка. Дан чекбокс. По нажатию на ссылку меняйте состояние чекбокса с отмеченного на неотмеченное и наоборот.
 </script>
 </body>
 </html>

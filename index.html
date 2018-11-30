@@ -8,40 +8,37 @@
 </head>
 <body>
 
+<p>Какой абзац покрасить??</p>
+<input type="text"><br/>
 
-<input type="checkbox"><br/>
-<p>Абзац 1</p>
-<input type="checkbox"><br/>
-<p>Абзац 2</p>
-<input type="checkbox"><br/>
-<p>Абзац 3</p>
-<input type="checkbox"><br/>
-<p>Абзац 4</p>
+<ul>
+	<li>Абзац 1</li>
+	<li>Абзац 2</li>
+	<li>Абзац 3</li>
+	<li>Абзац 4</li>
+	<li>Абзац 5</li>
+</ul>
 
 <script>
 "use strict"
-var input = document.querySelectorAll("input");
-var p = document.querySelectorAll("input + br + p");
+var input = document.querySelector("input");
+var li = document.querySelectorAll("li");
 
-for (var i = 0; i < input.length; i++){
-input[i].addEventListener("click",show);
-}
+input.addEventListener("keyup",painting);
 
-function show() {
+function painting() {
+	if (li[input.value - 1].style.background == "red"){
 	
-	for (var i = 0; i < input.length; i++) {
+	li[input.value - 1].style.background = "none";
+	input.value = "";
+	} else {
 	
-	
-		if (input[i].checked) {
-		p[i].style.display = "none";
-		} else {		
-		p[i].style.display = "block";
-		}
+	li[input.value - 1].style.background = "red";
+	input.value = "";
 	}
-	
+
 }
-//	  Даны чекбоксы. Под каждым чекбоксом размещен абзац. 
-//	  Сделайте так, что если чекбокс отмечен - соответствующий абзац видимый, а если не отмечен - не видимый. 
+//	  Дан инпут. Даны li. В инпут пишется номер. Сделайте так, чтобы по вводу числа, li с заданным номером покрасился в красный цвет.
 </script>
 </body>
 </html>

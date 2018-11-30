@@ -9,26 +9,38 @@
 <body>
 
 <p>Какой язык вы знаете?</p>
-<input type="radio" name="lang" value="HTML">HTML<br/>
-<input type="radio" name="lang" value="CSS">CSS<br/>
-<input type="radio" name="lang" value="JS">JS<br/>
-<input type="radio" name="lang" value="PHP">PHP<br/>
+<input type="checkbox" name="lang" value="HTML">HTML<br/>
+<input type="checkbox" name="lang" value="CSS">CSS<br/>
+<input type="checkbox" name="lang" value="JS">JS<br/>
+<input type="checkbox" name="lang" value="PHP">PHP<br/>
 <p class="result"></p>
 <script>
 "use strict"
 var input = document.querySelectorAll('input');
 var p = document.querySelector('.result');
 
+
 for (var i = 0; i < input.length; i++) {
 input[i].addEventListener("click", check);
 }
 
 function check() {
-	p.textContent = "Пользователь знает " + this.value;	
+	p.innerHTML =  "";
+	var result = "";
+	var pdefault = "Пользователь выбрал: ";
+	for (var i = 0; i < input.length; i++) {
+		if (input[i].checked){
+		result += input[i].value + ", ";	
+		
+		}
+		
+    }	
+	result =  result.slice(0,-2);
+	p.innerHTML = pdefault + result;
+		
 }
 
-
-//	 Спросите у пользователя какой язык (html, css, js, php) он знает с помощью радио кнопочек. Выведите этот язык в абзац.
+//	 Спросите у пользователя какие языки (html, css, js, php) он знает с помощью чекбоксов. Выбранные языки должны выводится в абзац ниже через запятую.
 </script>
 </body>
 </html>

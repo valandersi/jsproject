@@ -7,25 +7,35 @@
 	</style>
 </head>
 <body>
-<a href="#">Click me!</a><br/>
+
 <input type="checkbox">
+<input type="checkbox">
+<input type="checkbox">
+
+<button>Click me!</button>
 <script>
 "use strict"
-var input = document.querySelector('input');
-var a = document.querySelector('a');
-a.addEventListener("click", check);
+var input = document.querySelectorAll('input');
+var btn = document.querySelector('button');
+btn.addEventListener("click", check);
 
 function check() {
 	
-	if (input.checked) {
-	input.checked = false;
-	} else {
-	input.checked = true;
+	
+	for (var i = 0; i < input.length; i++){
+	
+		if (input[i].checked) {
+			input[i].checked = false;
+		} else {
+		input[i].checked = true;
+		}
+	
 	}
+	
 }
 
 
-//	 Дана ссылка. Дан чекбокс. По нажатию на ссылку меняйте состояние чекбокса с отмеченного на неотмеченное и наоборот
+//	 Даны чекбокс. Дана кнопка. По нажатию на кнопку сделайте все чекбоксы отмеченными.
 </script>
 </body>
 </html>

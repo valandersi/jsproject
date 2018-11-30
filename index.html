@@ -21,19 +21,23 @@
 <script>
 "use strict"
 var input = document.querySelectorAll("input");
+var p = document.querySelectorAll("input + br + p");
 
 for (var i = 0; i < input.length; i++){
 input[i].addEventListener("click",show);
 }
 
 function show() {
-	if (this.checked) {
-	this.nextElementSibling.nextElementSibling.style.display = "none";
-	} else {
 	
-	this.nextElementSibling.nextElementSibling.style.display = "block";
+	for (var i = 0; i < input.length; i++) {
+	
+	
+		if (input[i].checked) {
+		p[i].style.display = "none";
+		} else {		
+		p[i].style.display = "block";
+		}
 	}
-	
 	
 }
 //	  Даны чекбоксы. Под каждым чекбоксом размещен абзац. 

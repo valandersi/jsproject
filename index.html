@@ -4,40 +4,34 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
-	div{width:200px;height:200px;border:1px solid black;overflow:hidden;}
-	button{float:right;margin:10px;}
 	</style>
 </head>
 <body>
-
-<div>
-<button>X</button>
-</div>
-
-<div>
-<button>X</button>
-</div>
-
-<div>
-<button>X</button>
-</div>
+<p>Введите страны через запятую</p>
+<input type="text">
+<button>Создать список стран</button>
 
 <script>
 "use strict"
 
-var div = document.querySelectorAll("div");
-var btn = document.querySelectorAll("button");
+var inp = document.querySelector("input");
+var btn = document.querySelector("button");
+btn.addEventListener("click", createCountry);
 
-for (var i = 0; i < btn.length; i++) {
-	btn[i].addEventListener("click", closeWindow);
-}
+function createCountry(){
+var arr = inp.value.split(",");
+var ul = document.createElement("ul");
 
-function closeWindow(){
-this.parentElement.style.display = "none";
+	for (var i = 0; i < arr.length; i++) {
+	var li = document.createElement("li");
+	li.textContent = arr[i];
+	ul.appendChild(li);
+	}
+	
+document.body.appendChild(ul);
+//	  В инпут через запятую вводятся страны. По нажатию на кнопку сделайте так, чтобы эти страны записались в ul под инпутом (каждая страна отдельный li).
+//Россия, Германия, Франция
 }
-//	  Дан блок с кнопкой 'закрыть блок'. По нажатию на эту кнопку блок должен исчезнуть. 
-//	  Кнопка размещается внутри блока и должна исчезнуть вместе с ним. 
-//	  Блоков может быть любое количество, каждый из них закрывает своя кнопка.
 </script>
 </body>
 </html>

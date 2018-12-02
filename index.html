@@ -7,31 +7,34 @@
 	</style>
 </head>
 <body>
-<p>Введите страны через запятую</p>
+<p>Введите страну:</p>
 <input type="text">
-<button>Создать список стран</button>
+
 
 <script>
 "use strict"
 
 var inp = document.querySelector("input");
-var btn = document.querySelector("button");
-btn.addEventListener("click", createCountry);
+inp.addEventListener("keypress", createCountry);
+var p = document.createElement("p");
 
-function createCountry(){
-var arr = inp.value.split(",");
-var ul = document.createElement("ul");
-
-	for (var i = 0; i < arr.length; i++) {
-	var li = document.createElement("li");
-	li.textContent = arr[i];
-	ul.appendChild(li);
+function createCountry(evt){
+	if(evt.keyCode == 13){
+		p.textContent += ", " + inp.value;
+		document.body.appendChild(p);
+		inp.value = "";		
+		if(p.textContent.slice(0,1) == ","){
+		p.textContent = p.textContent.slice(1);
+		};
 	}
-	
-document.body.appendChild(ul);
-//	  В инпут через запятую вводятся страны. По нажатию на кнопку сделайте так, чтобы эти страны записались в ul под инпутом (каждая страна отдельный li).
-//Россия, Германия, Франция
+
 }
+
+//	  В инпут вводится страна и нажимается Enter. 
+//	  По нажатию на Enter сделайте так, чтобы введенные страны записывались в абзац под инпутом через запятую. 
+//	  То есть по каждому нажатию Enter в абзац будут добавляться все новые и новые страны.
+
+
 </script>
 </body>
 </html>

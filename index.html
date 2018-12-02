@@ -8,37 +8,47 @@
 </head>
 <body>
 
-<p>Какой абзац покрасить??</p>
-<input type="text"><br/>
+<p>Абзац</p>
 
-<ul>
-	<li>Абзац 1</li>
-	<li>Абзац 2</li>
-	<li>Абзац 3</li>
-	<li>Абзац 4</li>
-	<li>Абзац 5</li>
-</ul>
+<input type="checkbox" id="decoration"><span>Перечеркнуть</span><br/>
+<input type="checkbox" id="weight"><span>Сделать жирным</span><br/>
+<input type="checkbox" id="color"><span>Сделать красным</span><br/>
 
 <script>
 "use strict"
-var input = document.querySelector("input");
-var li = document.querySelectorAll("li");
+var inpColor = document.querySelector("#color");
+var inpStrong = document.querySelector("#weight");
+var inpDecoration = document.querySelector("#decoration");
+var p = document.querySelector("p"); 
 
-input.addEventListener("keyup",painting);
+inpColor.addEventListener("click", colorText);
+inpStrong.addEventListener("click", boldText);
+inpDecoration.addEventListener("click", decorationText);
 
-function painting() {
-	if (li[input.value - 1].style.background == "red"){
-	
-	li[input.value - 1].style.background = "none";
-	input.value = "";
-	} else {
-	
-	li[input.value - 1].style.background = "red";
-	input.value = "";
-	}
-
+function colorText(){
+	if (inpColor.checked) {
+	p.style.color = "red";
+	} else{
+	p.style.color = "";
+	}	
 }
-//	  Дан инпут. Даны li. В инпут пишется номер. Сделайте так, чтобы по вводу числа, li с заданным номером покрасился в красный цвет.
+function boldText(){
+	if (inpStrong.checked) {
+	p.style.fontWeight = "bold";
+	} else{
+	p.style.fontWeight = "";
+	}	
+}
+function decorationText(){
+	if (inpDecoration.checked) {
+	p.style.textDecoration = "line-through";
+	} else{
+	p.style.textDecoration = "none";
+	}	
+}
+//	  Дан абзац. Даны чекбоксы 'перечеркнуть', 'сделать жирным', 'сделать красным'. 
+//	  Если соответствующий чекбокс отмечен - заданное действие происходит с абзацем (становится красным, например). 
+//	  Если чекбоксу снять отметку - действие отменяется.
 </script>
 </body>
 </html>

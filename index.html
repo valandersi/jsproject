@@ -4,51 +4,40 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
+	div{width:200px;height:200px;border:1px solid black;overflow:hidden;}
+	button{float:right;margin:10px;}
 	</style>
 </head>
 <body>
 
-<p>Абзац</p>
+<div>
+<button>X</button>
+</div>
 
-<input type="checkbox" id="decoration"><span>Перечеркнуть</span><br/>
-<input type="checkbox" id="weight"><span>Сделать жирным</span><br/>
-<input type="checkbox" id="color"><span>Сделать красным</span><br/>
+<div>
+<button>X</button>
+</div>
+
+<div>
+<button>X</button>
+</div>
 
 <script>
 "use strict"
-var inpColor = document.querySelector("#color");
-var inpStrong = document.querySelector("#weight");
-var inpDecoration = document.querySelector("#decoration");
-var p = document.querySelector("p"); 
 
-inpColor.addEventListener("click", colorText);
-inpStrong.addEventListener("click", boldText);
-inpDecoration.addEventListener("click", decorationText);
+var div = document.querySelectorAll("div");
+var btn = document.querySelectorAll("button");
 
-function colorText(){
-	if (inpColor.checked) {
-	p.style.color = "red";
-	} else{
-	p.style.color = "";
-	}	
+for (var i = 0; i < btn.length; i++) {
+	btn[i].addEventListener("click", closeWindow);
 }
-function boldText(){
-	if (inpStrong.checked) {
-	p.style.fontWeight = "bold";
-	} else{
-	p.style.fontWeight = "";
-	}	
+
+function closeWindow(){
+this.parentElement.style.display = "none";
 }
-function decorationText(){
-	if (inpDecoration.checked) {
-	p.style.textDecoration = "line-through";
-	} else{
-	p.style.textDecoration = "none";
-	}	
-}
-//	  Дан абзац. Даны чекбоксы 'перечеркнуть', 'сделать жирным', 'сделать красным'. 
-//	  Если соответствующий чекбокс отмечен - заданное действие происходит с абзацем (становится красным, например). 
-//	  Если чекбоксу снять отметку - действие отменяется.
+//	  Дан блок с кнопкой 'закрыть блок'. По нажатию на эту кнопку блок должен исчезнуть. 
+//	  Кнопка размещается внутри блока и должна исчезнуть вместе с ним. 
+//	  Блоков может быть любое количество, каждый из них закрывает своя кнопка.
 </script>
 </body>
 </html>

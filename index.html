@@ -31,49 +31,46 @@
 	
 </table>
 </br>
-<button>Сумма</button>
 </br>
-<button>Сброс</button>
-<p></p>
+
 <script>
 "use strict"
 var btn = document.querySelectorAll("button");
 var td = document.querySelectorAll("td");
-var p = document.querySelector("p");
-var result = 0;
-btn[0].addEventListener("click", showResult);
-btn[1].addEventListener("click", resetResult);
 
-for (var i = 0; i < td.length; i++){
-td[i].addEventListener("click", color);
-}
 
-function color() {
-	
-	if (this.style.background == ""){
-	this.style.background = "red";
-	result += +this.textContent;
-	} else {
-	this.style.background = "";
-	result -= +this.textContent;
-	}
-	
-}
-
-function showResult() {
-p.textContent = result;
-}
-
-function resetResult() {
 	for (var i = 0; i < td.length; i++){
-	td[i].style.background = "";
+	td[i].addEventListener("click", change);
 	}
-	result = 0;
-	p.textContent = "";
+
+
+function change() {
+
+	this.removeEventListener("click", change);
+	var input = document.createElement("input");
+	input.value = this.textContent;
+	input.autofocus = "autofocus";
+	this.textContent = "";
+	this.appendChild(input);
+	
+	var btn = document.createElement("button");
+	btn.textContent = "Сохранить"; 
+	this.appendChild(btn); 	
+	btn.addEventListener("click", save);
+			
+	function save() {
+	console.log(this.parentElement);	
+	this.parentElement.textContent = input.value;
+	//this.parentElement.addEventListener("click", change);
+	
+		
+	}
+	
 }
-//	  Дана таблица с числами. По нажатию на ячейку она активируется и становится красного цвета. Активировать можно много ячеек. 
-//	  Под таблицей кнопка. По нажатию по этой кнопке в абзац ниже выведите сумма активированных ячеек. 
-//	  Реализуйте кнопку 'сбросить активированные ячейки'.
+
+
+//	  Дана таблица. По нажатию на ячейку в ней появляется инпут с содержимым этой ячейки и кнопка сохранить. 
+//	  Можно поредактировать текст в инпуте, сохранить - и текст ячейки поменяется.
 
 </script>
 </body>

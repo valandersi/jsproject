@@ -9,14 +9,14 @@
 <body>
 <table border=1>
 	<tr>
-		<td>1</td>
+		<td>4</td>
 		<td>153</td>
 		<td>43</td>
 	</tr>
 	<tr>
 		<td>57</td>
-		<td>25</td>
-		<td>31</td>
+		<td>27</td>
+		<td>33</td>
 	</tr>
 	<tr>
 		<td>115</td>
@@ -31,34 +31,35 @@
 	
 </table>
 </br>
-<input type="text"></br></br>
 <button>Click</button>
 <script>
 "use strict"
 
 var btn = document.querySelector("button");
 var td = document.querySelectorAll("td");
-var input = document.querySelector("input");
+var table = document.querySelector("table");
 
-btn.addEventListener("click", tdMax);
+btn.addEventListener("click", tdSum);
 
-function tdMax(){
-
-	var arr = [];
-	for (var i = 0; i < td.length; i++) {
-	arr.push(td[i].textContent);
-	}
-	
-	arr.sort(function (a, b) {
-    return a - b;
-	});
-	
-	var result = arr.join(",");
-	input.value = result;
-	
+function tdSum(){
+	var result1  = +td[0].textContent + +td[3].textContent + +td[6].textContent + +td[9].textContent
+	var result2  = +td[1].textContent + +td[4].textContent + +td[7].textContent + +td[10].textContent
+	var result3  = +td[2].textContent + +td[5].textContent + +td[8].textContent + +td[11].textContent
+	var tr = document.createElement("tr");
+	var td1 = document.createElement("td");
+	td1.textContent = result1;
+	var td2 = document.createElement("td");
+	td2.textContent = result2;
+	var td3 = document.createElement("td");
+	td3.textContent = result3;
+	tr.appendChild(td1);
+	tr.appendChild(td2);
+	tr.appendChild(td3);
+	table.appendChild(tr);
 }
 
-//	  Дана таблица с числами. По нажатию на кнопку в инпут под таблицей выведите эти числа через запятую в порядке возрастания.
+//	  Дана таблица с числами. 
+//	  По нажатию на кнопку в последний ряд таблицы в каждую ячейку запишите сумму чисел в столбце таблицы, расположенном над определенной ячейкой.
 
 
 </script>

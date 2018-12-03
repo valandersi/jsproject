@@ -30,13 +30,15 @@
 	</tr>
 	
 </table>
-
+</br>
+<input type="text"></br></br>
 <button>Click</button>
 <script>
 "use strict"
 
 var btn = document.querySelector("button");
 var td = document.querySelectorAll("td");
+var input = document.querySelector("input");
 
 btn.addEventListener("click", tdMax);
 
@@ -44,21 +46,19 @@ function tdMax(){
 
 	var arr = [];
 	for (var i = 0; i < td.length; i++) {
-	
 	arr.push(td[i].textContent);
 	}
 	
-	var maxArr = Math.max.apply(null,arr);
+	arr.sort(function (a, b) {
+    return a - b;
+	});
 	
+	var result = arr.join(",");
+	input.value = result;
 	
-	for (var j = 0; j < td.length; j++){
-		if(td[j].textContent == maxArr){
-		td[j].style.background = "red";
-		}
-	}
 }
 
-//	  Дана таблица с числами. По нажатию на кнопку найдите ячейку, в которой хранится максимальное число, и сделайте ее фон красным.
+//	  Дана таблица с числами. По нажатию на кнопку в инпут под таблицей выведите эти числа через запятую в порядке возрастания.
 
 
 </script>

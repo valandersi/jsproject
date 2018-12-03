@@ -7,32 +7,23 @@
 	</style>
 </head>
 <body>
-<p>Введите страну:</p>
-<input type="text">
-
-
+<div>Текст</div>
+<div>Текст непонятно сколько символов</div>
+<div>Текст непонятно сколько символов. Текст непонятно сколько символов</div>
+<div>Текст непонятно сколько символов. Текст непонятно сколько символов.Текст непонятно сколько символов. Текст непонятно сколько символов.</div>
 <script>
 "use strict"
 
-var inp = document.querySelector("input");
-inp.addEventListener("keypress", createCountry);
-var p = document.createElement("p");
+var div = document.querySelectorAll("div");
 
-function createCountry(evt){
-	if(evt.keyCode == 13){
-		p.textContent += ", " + inp.value;
-		document.body.appendChild(p);
-		inp.value = "";		
-		if(p.textContent.slice(0,1) == ","){
-		p.textContent = p.textContent.slice(1);
-		};
-	}
-
+for (var i = 0; i < div.length; i++) {
+	if (div[i].textContent.length > 10){
+	div[i].textContent = div[i].textContent.slice(0,10) + "...";
+	} 
 }
 
-//	  В инпут вводится страна и нажимается Enter. 
-//	  По нажатию на Enter сделайте так, чтобы введенные страны записывались в абзац под инпутом через запятую. 
-//	  То есть по каждому нажатию Enter в абзац будут добавляться все новые и новые страны.
+//	  На странице есть дивы. В них есть текст. Обойдите все дивы и обрежьте тот текст, который в них стоит так, чтобы он стал длиной 10 символов. 
+//	  И добавьте троеточие в конец обрезанного текста
 
 
 </script>

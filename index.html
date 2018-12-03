@@ -31,36 +31,49 @@
 	
 </table>
 </br>
-<button>Click</button>
+<button>Сумма</button>
+</br>
+<button>Сброс</button>
+<p></p>
 <script>
 "use strict"
-
-var btn = document.querySelector("button");
+var btn = document.querySelectorAll("button");
 var td = document.querySelectorAll("td");
-var table = document.querySelector("table");
+var p = document.querySelector("p");
+var result = 0;
+btn[0].addEventListener("click", showResult);
+btn[1].addEventListener("click", resetResult);
 
-btn.addEventListener("click", tdSum);
-
-function tdSum(){
-	var result1  = +td[0].textContent + +td[3].textContent + +td[6].textContent + +td[9].textContent
-	var result2  = +td[1].textContent + +td[4].textContent + +td[7].textContent + +td[10].textContent
-	var result3  = +td[2].textContent + +td[5].textContent + +td[8].textContent + +td[11].textContent
-	var tr = document.createElement("tr");
-	var td1 = document.createElement("td");
-	td1.textContent = result1;
-	var td2 = document.createElement("td");
-	td2.textContent = result2;
-	var td3 = document.createElement("td");
-	td3.textContent = result3;
-	tr.appendChild(td1);
-	tr.appendChild(td2);
-	tr.appendChild(td3);
-	table.appendChild(tr);
+for (var i = 0; i < td.length; i++){
+td[i].addEventListener("click", color);
 }
 
-//	  Дана таблица с числами. 
-//	  По нажатию на кнопку в последний ряд таблицы в каждую ячейку запишите сумму чисел в столбце таблицы, расположенном над определенной ячейкой.
+function color() {
+	
+	if (this.style.background == ""){
+	this.style.background = "red";
+	result += +this.textContent;
+	} else {
+	this.style.background = "";
+	result -= +this.textContent;
+	}
+	
+}
 
+function showResult() {
+p.textContent = result;
+}
+
+function resetResult() {
+	for (var i = 0; i < td.length; i++){
+	td[i].style.background = "";
+	}
+	result = 0;
+	p.textContent = "";
+}
+//	  Дана таблица с числами. По нажатию на ячейку она активируется и становится красного цвета. Активировать можно много ячеек. 
+//	  Под таблицей кнопка. По нажатию по этой кнопке в абзац ниже выведите сумма активированных ячеек. 
+//	  Реализуйте кнопку 'сбросить активированные ячейки'.
 
 </script>
 </body>

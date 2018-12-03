@@ -7,23 +7,58 @@
 	</style>
 </head>
 <body>
-<div>Текст</div>
-<div>Текст непонятно сколько символов</div>
-<div>Текст непонятно сколько символов. Текст непонятно сколько символов</div>
-<div>Текст непонятно сколько символов. Текст непонятно сколько символов.Текст непонятно сколько символов. Текст непонятно сколько символов.</div>
+<table border=1>
+	<tr>
+		<td>1</td>
+		<td>153</td>
+		<td>43</td>
+	</tr>
+	<tr>
+		<td>57</td>
+		<td>25</td>
+		<td>31</td>
+	</tr>
+	<tr>
+		<td>115</td>
+		<td>97</td>
+		<td>54</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>116</td>
+		<td>42</td>
+	</tr>
+	
+</table>
+
+<button>Click</button>
 <script>
 "use strict"
 
-var div = document.querySelectorAll("div");
+var btn = document.querySelector("button");
+var td = document.querySelectorAll("td");
 
-for (var i = 0; i < div.length; i++) {
-	if (div[i].textContent.length > 10){
-	div[i].textContent = div[i].textContent.slice(0,10) + "...";
-	} 
+btn.addEventListener("click", tdMax);
+
+function tdMax(){
+
+	var arr = [];
+	for (var i = 0; i < td.length; i++) {
+	
+	arr.push(td[i].textContent);
+	}
+	
+	var maxArr = Math.max.apply(null,arr);
+	
+	
+	for (var j = 0; j < td.length; j++){
+		if(td[j].textContent == maxArr){
+		td[j].style.background = "red";
+		}
+	}
 }
 
-//	  На странице есть дивы. В них есть текст. Обойдите все дивы и обрежьте тот текст, который в них стоит так, чтобы он стал длиной 10 символов. 
-//	  И добавьте троеточие в конец обрезанного текста
+//	  Дана таблица с числами. По нажатию на кнопку найдите ячейку, в которой хранится максимальное число, и сделайте ее фон красным.
 
 
 </script>

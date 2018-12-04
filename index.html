@@ -35,40 +35,36 @@
 
 <script>
 "use strict"
-var btn = document.querySelectorAll("button");
 var td = document.querySelectorAll("td");
-
-
+var flag = true;
 	for (var i = 0; i < td.length; i++){
 	td[i].addEventListener("click", change);
 	}
 
 
 function change() {
-
 	this.removeEventListener("click", change);
+	var elem = this;
+	this.style.display = "";
 	var input = document.createElement("input");
 	input.value = this.textContent;
-	input.autofocus = "autofocus";
-	this.textContent = "";
+	input.autofocus = true;
+	this.textContent="";
 	this.appendChild(input);
-	
-	var btn = document.createElement("button");
-	btn.textContent = "Сохранить"; 
-	this.appendChild(btn); 	
-	btn.addEventListener("click", save);
-			
-	function save() {
-	console.log(this.parentElement);	
-	this.parentElement.textContent = input.value;
-	//this.parentElement.addEventListener("click", change);
-	
+	input.addEventListener("blur", save);	
 		
-	}
+		function save(){
+			this.parentElement.addEventListener("click", change);
+			var result = input.value; 
+			elem.textContent = result;	
+		    console.log(this);
+			
+			console.log(input);
+		}
 	
 }
-
-
+		
+		
 //	  Дана таблица. По нажатию на ячейку в ней появляется инпут с содержимым этой ячейки и кнопка сохранить. 
 //	  Можно поредактировать текст в инпуте, сохранить - и текст ячейки поменяется.
 

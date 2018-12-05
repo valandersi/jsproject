@@ -7,67 +7,41 @@
 	</style>
 </head>
 <body>
-<table border=1>
-	<tr>
-		<td>4</td>
-		<td>153</td>
-		<td>43</td>
-	</tr>
-	<tr>
-		<td>57</td>
-		<td>27</td>
-		<td>33</td>
-	</tr>
-	<tr>
-		<td>115</td>
-		<td>97</td>
-		<td>54</td>
-	</tr>
-	<tr>
-		<td>3</td>
-		<td>116</td>
-		<td>42</td>
-	</tr>
-	
-</table>
-</br>
-</br>
 
+<ul>
+	<li>13</li>
+	<li>6</li>
+	<li>9</li>
+	<li>27</li>
+	<li>-7</li>
+	<li>11</li>
+</ul>
+
+<span></span><br><br>
+<button>Click!</button>
 <script>
 "use strict"
-var td = document.querySelectorAll("td");
-	for (var i = 0; i < td.length; i++){
-	td[i].addEventListener("click", change);
+var li = document.querySelectorAll("li");
+var btn = document.querySelector("button");
+var span = document.querySelector("span");
+btn.addEventListener("click", sort);
+
+function sort(){
+
+	var arr = [];
+	for (var i = 0; i < li.length; i++){
+	arr.push(li[i].textContent)
 	}
-
-
-function change() {
-	this.removeEventListener("click", change);
-	var elem = this;
-	var input = document.createElement("input");
-	input.value = this.textContent;
-	this.textContent="";
-	this.appendChild(input);
-	input.focus();	
 	
-	var btn = document.createElement("button");
-	btn.textContent = "сохранить";
-	this.appendChild(btn);
-	btn.addEventListener("focus", save);
-	
-		function save(){
-			this.parentElement.addEventListener("click", change);
-			var result = input.value; 
-			elem.textContent = result;	
-		    input.remove();
-			btn.remove();
-		}
+	var result = arr.sort(function (a, b) {
+    return a - b;
+	});
+	span.textContent = result ;
 	
 }
 		
-		
-//	  Дана таблица. По нажатию на ячейку в ней появляется инпут с содержимым этой ячейки и кнопка сохранить. 
-//	  Можно поредактировать текст в инпуте, сохранить - и текст ячейки поменяется.
+//	  Дан список и кнопка. По нажатию на кнопку посортируйте пункты списка по возрастанию.
+
 
 </script>
 </body>

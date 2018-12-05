@@ -8,39 +8,30 @@
 </head>
 <body>
 
-<ul>
-	<li>13</li>
-	<li>6</li>
-	<li>9</li>
-	<li>27</li>
-	<li>-7</li>
-	<li>11</li>
-</ul>
+<p>это просто предложение, которое не содержит никакого смысла.</p>
 
-<span></span><br><br>
-<button>Click!</button>
 <script>
 "use strict"
-var li = document.querySelectorAll("li");
-var btn = document.querySelector("button");
-var span = document.querySelector("span");
-btn.addEventListener("click", sort);
 
-function sort(){
 
-	var arr = [];
-	for (var i = 0; i < li.length; i++){
-	arr.push(li[i].textContent)
-	}
+var p = document.querySelector("p");
+ucFirst();
+function ucFirst(){
+	var	result = p.textContent.split(" ");
+		for (var i = 0; i < result.length; i++) {
+		result[i] = result[i].slice(0,1).toUpperCase() + result[i].slice(1);;
+		}
+	result = result.join(" ");
+	p.textContent = result;
 	
-	var result = arr.sort(function (a, b) {
-    return a - b;
-	});
-	span.textContent = result ;
+	
+	
 	
 }
 		
-//	  Дан список и кнопка. По нажатию на кнопку посортируйте пункты списка по возрастанию.
+//	  Дана строка. Сделайте заглавным первый символ каждого слова этой строки. 
+//	  Для этого сделайте вспомогательную функцию ucfirst, которая будет получать строку, 
+//	  делать первый символ этой строки заглавным и возвращать обратно строку с заглавной первой буквой.
 
 
 </script>

@@ -48,7 +48,7 @@ function change() {
 	input.value = this.textContent;
 	this.textContent="";
 	this.appendChild(input);
-	//input.autofocus = true;
+	input.focus();	
 	
 	var btn = document.createElement("button");
 	btn.textContent = "сохранить";
@@ -61,7 +61,6 @@ function change() {
 			elem.textContent = result;	
 		    input.remove();
 			btn.remove();
-			input.autofocus = false;
 		}
 	
 }

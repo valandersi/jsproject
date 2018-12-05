@@ -8,30 +8,25 @@
 </head>
 <body>
 
-<p>это просто предложение, которое не содержит никакого смысла.</p>
 
 <script>
 "use strict"
 
-
-var p = document.querySelector("p");
-ucFirst();
-function ucFirst(){
-	var	result = p.textContent.split(" ");
-		for (var i = 0; i < result.length; i++) {
-		result[i] = result[i].slice(0,1).toUpperCase() + result[i].slice(1);;
+function detElem(arr, num){
+	
+	for (var i = 0; i < arr.length; i++){
+		if (arr[i] == num) {
+		arr.splice(i, 1)
+		i = i - 1;
 		}
-	result = result.join(" ");
-	p.textContent = result;
-	
-	
-	
-	
-}
 		
-//	  Дана строка. Сделайте заглавным первый символ каждого слова этой строки. 
-//	  Для этого сделайте вспомогательную функцию ucfirst, которая будет получать строку, 
-//	  делать первый символ этой строки заглавным и возвращать обратно строку с заглавной первой буквой.
+	}
+	return arr;
+}
+
+detElem([3,3,3,3,4,4,42,4,4,5,4,4,4,4,2,3,4,4,4,42,4444,6456,3,4,124,1,645,3], 4);
+
+//	 Сделайте функцию detElem, которая параметром будет принимать массив и какое значение и возвращать массив, в котором все элементы с таким значением будут удалены.
 
 
 </script>

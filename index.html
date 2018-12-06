@@ -20,12 +20,30 @@ function createUl(){
 		li = document.createElement("li");
 		li.textContent = arr[i];
 		ul.appendChild(li);
+		li.addEventListener("click",edit);			
+		}
+		
+		function edit(){
+			this.removeEventListener("click",edit);		
+			console.log(this.textContent);
+			var inp = document.createElement("input");
+			inp.value = this.textContent;
+			this.textContent = "";
+			this.appendChild(inp);
+			inp.focus();
+			inp.addEventListener("blur", saveText);
+				
+				function saveText(){
+				this.parentElement.addEventListener("click",edit);
+				this.parentElement.textContent = inp.value;
+				inp.remove();
+				}
 		}
 	document.body.appendChild(ul);
 }
 
 
-//	 Дан массив. Выведите его элементы в виде списка ul.
+//	 Модифицируйте предыдущую задачу так, чтобы по клику на любую li в ней появлялся инпут, с помощью которого ее можно будет поредактировать.
 
 </script>
 </body>

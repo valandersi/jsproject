@@ -12,18 +12,19 @@
 <script>
 "use strict"
 
-function arrayRand(arr){
-	var num = Math.floor(Math.random()*arr.length);
-	
-	
-	
-	return arr[num];
+function uniq(arr){
+	for (var i = 0; i < arr.length; i++){
+		if(arr.indexOf(arr[i]) != i){
+		arr.splice(i,1);
+		i--;
+		}
+	}
+	return arr;
 }
+uniq([16,9,5,1,1,,1,1,1,1,1,1,32,4,4,32,3,23,2,32,3,2,5,25,6,4,-3,8423,5235,4122]);
 
-arrayRand([16,9,5,1,32,25,6,4,-3,8423,5235,4122]);
 
-
-//	 Сделайте функцию arrayRand, которая параметром будет принимать массив и возвращать случайный элемент из этого массива.
+//	 делайте функцию uniq, которая будет оставлять в массиве только уникальные элементы (то есть будет удалять дубли).
 
 
 </script>

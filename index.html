@@ -14,18 +14,23 @@
 var arr = [123,423,556,24,235,2135235,34]
 createUl();
 function createUl(){
-	var ul = document.createElement("ul");
-	var li;
+		var ul = document.createElement("ul");
+		var li;
+		
 		for (var i = 0; i < arr.length; i++){
-		li = document.createElement("li");
-		li.textContent = arr[i];
-		ul.appendChild(li);
-		li.addEventListener("click",edit);			
+			li = document.createElement("li");
+			li.textContent = arr[i];
+			ul.appendChild(li);
+			addClickforEdit();		
+			}
+	
+		function addClickforEdit(){
+		li.addEventListener("click",edit);	
 		}
+		
 		
 		function edit(){
 			this.removeEventListener("click",edit);		
-			console.log(this.textContent);
 			var inp = document.createElement("input");
 			inp.value = this.textContent;
 			this.textContent = "";
@@ -39,11 +44,26 @@ function createUl(){
 				inp.remove();
 				}
 		}
+	
+	var inpAdd = document.createElement("input");
+	inpAdd.focus();
+	inpAdd.addEventListener("blur", addElement);
+			
+		function addElement(){
+		arr.push(+inpAdd.value);
+		li = document.createElement("li");
+		li.textContent = inpAdd.value;
+		inpAdd.value = "";
+		ul.appendChild(li);
+		addClickforEdit();
+		}
+		
 	document.body.appendChild(ul);
+	document.body.appendChild(inpAdd);
 }
 
 
-//	 Модифицируйте предыдущую задачу так, чтобы по клику на любую li в ней появлялся инпут, с помощью которого ее можно будет поредактировать.
+//	 Модифицируйте предыдущую задачу так, чтобы под списком был инпут, с помощью которого можно будет добавить новый элемент в конец списка ul.
 
 </script>
 </body>

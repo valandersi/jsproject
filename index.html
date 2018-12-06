@@ -7,29 +7,25 @@
 	</style>
 </head>
 <body>
-<p>Тут расположился красивый текст</p>
+
 
 <script>
 "use strict"
-var p = document.querySelector("p");
-p.addEventListener("click", editText);
-
-function editText(){
-	var inp = document.createElement("input");
-	inp.value = p.textContent;
-	document.body.appendChild(inp);
-	inp.focus();
-	inp.addEventListener("blur", saveText);
-		function saveText(){
-		p.textContent = inp.value;
-		inp.remove();
+var arr = [123,423,556,24,235,2135235,34]
+createUl();
+function createUl(){
+	var ul = document.createElement("ul");
+	var li;
+		for (var i = 0; i < arr.length; i++){
+		li = document.createElement("li");
+		li.textContent = arr[i];
+		ul.appendChild(li);
 		}
+	document.body.appendChild(ul);
 }
 
 
-//	 Дан абзац. Сделайте так, чтобы по клику на него его текст становился в инпуте, с помощью которого можно будет поредактировать текст этого абзаца. 
-//	 По потери фокуса инпут должен исчезать, а в абзаце оставаться новый текст.
-
+//	 Дан массив. Выведите его элементы в виде списка ul.
 
 </script>
 </body>

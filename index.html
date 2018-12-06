@@ -35,14 +35,28 @@ function createUl(){
 			inp.value = this.textContent;
 			this.textContent = "";
 			this.appendChild(inp);
-			inp.focus();
+			
+		//	inp.focus();
+			
+			var aDelete = document.createElement("button");
+			aDelete.textContent = "Удалить";
+			this.appendChild(aDelete);
+			
+			
+			aDelete.addEventListener("click", deleteElem);
 			inp.addEventListener("blur", saveText);
 				
-				function saveText(){
-				this.parentElement.addEventListener("click",edit);
-				this.parentElement.textContent = inp.value;
-				inp.remove();
+				function deleteElem(){
+					this.parentElement.remove();
 				}
+				function saveText(){
+					
+					this.parentElement.addEventListener("click",edit);
+					this.parentElement.textContent = inp.value;
+					inp.remove();					
+				}
+			
+			
 		}
 	
 	var inpAdd = document.createElement("input");
@@ -57,7 +71,10 @@ function createUl(){
 		ul.appendChild(li);
 		addClickforEdit();
 		}
-		
+	
+	
+	
+	
 	document.body.appendChild(ul);
 	document.body.appendChild(inpAdd);
 }

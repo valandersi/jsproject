@@ -7,25 +7,28 @@
 	</style>
 </head>
 <body>
-
+<p>Тут расположился красивый текст</p>
 
 <script>
 "use strict"
-function shuffle(arr) {
-	function compareRandom(a, b) {
-	  return Math.random() - 0.5;
-	}
+var p = document.querySelector("p");
+p.addEventListener("click", editText);
 
-arr.sort(compareRandom);
-console.log(arr);
+function editText(){
+	var inp = document.createElement("input");
+	inp.value = p.textContent;
+	document.body.appendChild(inp);
+	inp.focus();
+	inp.addEventListener("blur", saveText);
+		function saveText(){
+		p.textContent = inp.value;
+		inp.remove();
+		}
 }
 
-shuffle([16,9,5,1,1,4,1,1,1,1,1,1,32,4,4,32,3,23,2,32,3,2,5,25,6,4,-3,8423,5235,4122]);
 
-<!-- var arr = [1,2,3,4,5,6].sort(function(){ return 0.5-Math.random() }); -->
-
-<!-- console.log(arr); -->
-//	 Сделайте функцию shuffle, которая параметром будет принимать массив и перемешивать его элементы в случайном порядке.
+//	 Дан абзац. Сделайте так, чтобы по клику на него его текст становился в инпуте, с помощью которого можно будет поредактировать текст этого абзаца. 
+//	 По потери фокуса инпут должен исчезать, а в абзаце оставаться новый текст.
 
 
 </script>

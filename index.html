@@ -12,29 +12,18 @@
 <script>
 "use strict"
 
-function getDiff(arr, arr2){
-	var arr3 = []
-	for (var i = 0; i < arr.length; i++){
-		if (arr2.indexOf(arr[i]) == -1) {
-		arr3.push(arr[i]);
-		}
-		
-	}
-	for (var j = 0; j < arr2.length; j++){
-		if (arr.indexOf(arr2[j]) == -1) {
-		arr3.push(arr2[j]);
-		}
-	}
+function arrayRand(arr){
+	var num = Math.floor(Math.random()*arr.length);
 	
 	
-	return arr3;
+	
+	return arr[num];
 }
 
-getDiff([0,9,5,1,32,25,6,4,-3], [1,2,3,12,5,4,0,8,9]);
+arrayRand([16,9,5,1,32,25,6,4,-3,8423,5235,4122]);
 
 
-//	 Сделайте функцию getDiff, которая параметром будет принимать два массива и возвращать массив элементов, 
-//	 которые не присутствуют одновременно в обоих массивах.
+//	 Сделайте функцию arrayRand, которая параметром будет принимать массив и возвращать случайный элемент из этого массива.
 
 
 </script>

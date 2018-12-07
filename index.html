@@ -7,80 +7,75 @@
 	</style>
 </head>
 <body>
-
-
+<h1>Игра угадай число</h1>
+<p>Введите число:</p>
+<input type="text"><br>
+<span></span>
 <script>
 "use strict"
-var arr = [123,423,556,24,235,2135235,34]
-createUl();
-function createUl(){
-		var ul = document.createElement("ul");
-		var li;
-		
-		for (var i = 0; i < arr.length; i++){
-			li = document.createElement("li");
-			li.textContent = arr[i];
-			ul.appendChild(li);
-			addClickforEdit();		
-			}
-	
-		function addClickforEdit(){
-		li.addEventListener("click",edit);	
-		}
-		
-		
-		function edit(){
-			this.removeEventListener("click",edit);		
-			var inp = document.createElement("input");
-			inp.value = this.textContent;
-			this.textContent = "";
-			this.appendChild(inp);
-			
-		//	inp.focus();
-			
-			var aDelete = document.createElement("button");
-			aDelete.textContent = "Удалить";
-			this.appendChild(aDelete);
-			
-			
-			aDelete.addEventListener("click", deleteElem);
-			inp.addEventListener("blur", saveText);
-				
-				function deleteElem(){
-					this.parentElement.remove();
-				}
-				function saveText(){
-					
-					this.parentElement.addEventListener("click",edit);
-					this.parentElement.textContent = inp.value;
-					inp.remove();					
-				}
-			
-			
-		}
-	
-	var inpAdd = document.createElement("input");
-	inpAdd.focus();
-	inpAdd.addEventListener("blur", addElement);
-			
-		function addElement(){
-		arr.push(+inpAdd.value);
-		li = document.createElement("li");
-		li.textContent = inpAdd.value;
-		inpAdd.value = "";
-		ul.appendChild(li);
-		addClickforEdit();
-		}
-	
-	
-	
-	
-	document.body.appendChild(ul);
-	document.body.appendChild(inpAdd);
+var inp = document.querySelector("input");
+var result = document.querySelector("span");
+inp.addEventListener("keyup",predictNum);
+<!-- var random = Math.floor(Math.random()*100 + 1); -->
+<!-- console.log(random); -->
+var random;
+
+
+startRandom();
+function startRandom(){
+
+random = Math.floor(Math.random()*100 + 1);
+console.log(random);
+
 }
 
 
-//	 Модифицируйте предыдущую задачу так, чтобы под списком был инпут, с помощью которого можно будет добавить новый элемент в конец списка ul.
+
+	function predictNum() {
+			
+		<!-- if(inp.value == ""){ -->
+		<!-- result.textContent = ""; -->
+		<!-- inp.value = ""; -->
+		<!-- }   -->
+		
+		if (inp.value > 100){
+		alert("Число не может быть больше 100");
+		inp.value = "";
+		}  
+		
+		else if (inp.value < 1){
+		alert("Загаданное число от 1 до 100");
+		inp.value = "";
+		}  
+		
+		else{
+			if(inp.value < random){
+			result.textContent = "Введите число больше";
+		//	inp.value = "";
+			console.log(random);	
+			}  
+			else if(inp.value > random){
+			result.textContent = "Введите число меньше";
+		//	inp.value = "";
+			console.log(random);	
+			} 
+			else if(inp.value == random){
+			result.textContent = "";
+			alert("Вы выиграли. Давай ещё?");
+			random = Math.floor(Math.random()*100 + 1);
+			inp.value = "";
+			startRandom();
+			}
+		}
+	
+	}
+
+
+
+//	 Реализуйте игру 'угадай число'. Суть: компьютер загадывает число от 1 до 100. 
+//	 В инпут на экране игрок вводит число от 1 до 100, пытаясь угадать, что же загадал компьютер. 
+//	 Если игрок ввел число, меньше загаданного, компьютер должен написать 'введите число побольше', а если введено больше загаданного, 
+//	 то, соответственно, компьютер должен написать 'введите число поменьше'. Если же игрок угадал число, игра начинается сначала.
 
 </script>
 </body>

@@ -9,20 +9,22 @@
 <body>
 
 <script>
+
 "use strict"
-var a = -3;
-
-if(a > 0){ 
-var ggg = function (){
-		console.log("!");
-	}
-} else {
-ggg = function (){
-	console.log("!!");
-	}
+function ggg(num, b) {
+	return b(num);
 }
+var b = function(a){
+	return a = a * a;	
+};	
 
-//Если переменная a больше нуля - то в ggg запишем функцию, которая выводит один !, иначе запишем функцию, которая выводит два !. 
+console.log(ggg(ggg(6, b), b));
+
+
+
+
+
+// Функция ggg принимает 2 параметра: число и анонимную функцию, которая возводит число в квадрат. Возведите число в 4-тую степень с помощью ggg
 </script>
 </body>
 </html>

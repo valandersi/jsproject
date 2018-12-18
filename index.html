@@ -10,17 +10,21 @@
 
 <script>
 "use strict"
-var count = 0;
-function plusCount(){
-return count++;
+
+function counter(){
+	var a = 0;
+	return function(){
+		return a++;
+		
+	};
 };
 
-plusCount();
-plusCount();
-plusCount();
-plusCount();
-console.log(count);
-	
+var cnt = counter();
+
+console.log(cnt());
+console.log(cnt());
+
+
 
 // Сделайте функцию, которая считает и выводит количество своих вызовов.
 </script>

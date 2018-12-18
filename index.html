@@ -10,23 +10,19 @@
 
 <script>
 "use strict"
-
-var ggg = function(a){
-return kvadrat(a) + kub(a);
+var count = 0;
+function plusCount(){
+return count++;
 };
 
-
-function kvadrat(a){
-return a = a*a;
-};
-
-function kub(a){
-return a = a*a*a;
-};
+plusCount();
+plusCount();
+plusCount();
+plusCount();
+console.log(count);
 	
 
-// Дана функция ggg. Она требует первым параметром число, вторым функцию, которая возводит в квадрат, 
-// а третьим параметром функцию, которая возводит в куб. Эти функции есть как Function Declaration - kvadrat, kub. Пусть функция ggg вернет сумму квадрата и куба числа. 
+// Сделайте функцию, которая считает и выводит количество своих вызовов.
 </script>
 </body>
 </html>
